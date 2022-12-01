@@ -2,6 +2,6 @@ cmake_minimum_required(VERSION 3.12)
 
 
 # Add Project Attributes
-project()
+project(Hallo Welt)
 
 add_executable(Hallo Welt main.cpp)
