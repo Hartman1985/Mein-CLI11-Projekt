@@ -1,0 +1,3 @@
+/home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles/rebuild_cache.dir
+/home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles/edit_cache.dir
+/home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles/HELLO.dir

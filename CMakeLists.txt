@@ -1,7 +1,5 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 
-
-# Add Project Attributes
-project(Hallo Welt)
-
-add_executable(Hallo Welt main.cpp)
+project(HELLO)
+message("This is Hello World in CMake")
+add_executable(${PROJECT_NAME} main.cpp)

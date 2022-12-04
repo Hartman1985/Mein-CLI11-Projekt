@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/sebastian/repos/Mein-CLI11-Projekt/build",
+  "command": "/usr/bin/c++    -g   -o CMakeFiles/HELLO.dir/main.cpp.o -c /home/sebastian/repos/Mein-CLI11-Projekt/main.cpp",
+  "file": "/home/sebastian/repos/Mein-CLI11-Projekt/main.cpp"
+}
+]
