@@ -48,35 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sebastian/repos/Mein-CLI11-Projekt
+CMAKE_SOURCE_DIR = /home/sebastian/repos/Mein-CLI11-Projekt/build/_deps/cli11-subbuild
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sebastian/repos/Mein-CLI11-Projekt/build
+CMAKE_BINARY_DIR = /home/sebastian/repos/Mein-CLI11-Projekt/build/_deps/cli11-subbuild
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/sebastian/repos/Mein-CLI11-Projekt/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-
-.PHONY : package_source/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -89,22 +67,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	/usr/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target package
-package/fast: package
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-.PHONY : package/fast
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles /home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sebastian/repos/Mein-CLI11-Projekt/build/_deps/cli11-subbuild/CMakeFiles /home/sebastian/repos/Mein-CLI11-Projekt/build/_deps/cli11-subbuild/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sebastian/repos/Mein-CLI11-Projekt/build/_deps/cli11-subbuild/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -133,44 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named HELLO_World
+# Target rules for targets named cli11-populate
 
 # Build rule for target.
-HELLO_World: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 HELLO_World
-.PHONY : HELLO_World
+cli11-populate: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cli11-populate
+.PHONY : cli11-populate
 
 # fast build rule for target.
-HELLO_World/fast:
-	$(MAKE) -f CMakeFiles/HELLO_World.dir/build.make CMakeFiles/HELLO_World.dir/build
-.PHONY : HELLO_World/fast
-
-src/main.o: src/main.cc.o
-
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.cc.o:
-	$(MAKE) -f CMakeFiles/HELLO_World.dir/build.make CMakeFiles/HELLO_World.dir/src/main.cc.o
-.PHONY : src/main.cc.o
-
-src/main.i: src/main.cc.i
-
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cc.i:
-	$(MAKE) -f CMakeFiles/HELLO_World.dir/build.make CMakeFiles/HELLO_World.dir/src/main.cc.i
-.PHONY : src/main.cc.i
-
-src/main.s: src/main.cc.s
-
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cc.s:
-	$(MAKE) -f CMakeFiles/HELLO_World.dir/build.make CMakeFiles/HELLO_World.dir/src/main.cc.s
-.PHONY : src/main.cc.s
+cli11-populate/fast:
+	$(MAKE) -f CMakeFiles/cli11-populate.dir/build.make CMakeFiles/cli11-populate.dir/build
+.PHONY : cli11-populate/fast
 
 # Help Target
 help:
@@ -178,14 +129,9 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... package_source"
 	@echo "... rebuild_cache"
-	@echo "... package"
-	@echo "... HELLO_World"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... edit_cache"
+	@echo "... cli11-populate"
 .PHONY : help
 
 

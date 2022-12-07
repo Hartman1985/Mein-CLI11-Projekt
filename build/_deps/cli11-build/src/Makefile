@@ -70,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/sebastian/repos/Mein-CLI11-Projekt/build/CPackSourceConfig.cmake
+	cd /home/sebastian/repos/Mein-CLI11-Projekt/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/sebastian/repos/Mein-CLI11-Projekt/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -92,7 +92,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	/usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/sebastian/repos/Mein-CLI11-Projekt/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -102,14 +102,14 @@ package/fast: package
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles /home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/sebastian/repos/Mein-CLI11-Projekt/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles /home/sebastian/repos/Mein-CLI11-Projekt/build/_deps/cli11-build/src/CMakeFiles/progress.marks
+	cd /home/sebastian/repos/Mein-CLI11-Projekt/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/cli11-build/src/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/sebastian/repos/Mein-CLI11-Projekt/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/sebastian/repos/Mein-CLI11-Projekt/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/cli11-build/src/clean
 .PHONY : clean
 
 # The main clean target
@@ -119,58 +119,18 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/sebastian/repos/Mein-CLI11-Projekt/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/cli11-build/src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/sebastian/repos/Mein-CLI11-Projekt/build && $(MAKE) -f CMakeFiles/Makefile2 _deps/cli11-build/src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/sebastian/repos/Mein-CLI11-Projekt/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named HELLO_World
-
-# Build rule for target.
-HELLO_World: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 HELLO_World
-.PHONY : HELLO_World
-
-# fast build rule for target.
-HELLO_World/fast:
-	$(MAKE) -f CMakeFiles/HELLO_World.dir/build.make CMakeFiles/HELLO_World.dir/build
-.PHONY : HELLO_World/fast
-
-src/main.o: src/main.cc.o
-
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.cc.o:
-	$(MAKE) -f CMakeFiles/HELLO_World.dir/build.make CMakeFiles/HELLO_World.dir/src/main.cc.o
-.PHONY : src/main.cc.o
-
-src/main.i: src/main.cc.i
-
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cc.i:
-	$(MAKE) -f CMakeFiles/HELLO_World.dir/build.make CMakeFiles/HELLO_World.dir/src/main.cc.i
-.PHONY : src/main.cc.i
-
-src/main.s: src/main.cc.s
-
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cc.s:
-	$(MAKE) -f CMakeFiles/HELLO_World.dir/build.make CMakeFiles/HELLO_World.dir/src/main.cc.s
-.PHONY : src/main.cc.s
 
 # Help Target
 help:
@@ -182,10 +142,6 @@ help:
 	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... package"
-	@echo "... HELLO_World"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
 .PHONY : help
 
 
@@ -197,6 +153,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/sebastian/repos/Mein-CLI11-Projekt/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
