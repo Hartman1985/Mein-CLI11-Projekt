@@ -12,9 +12,9 @@ int main(int argc, char** argv)
     bool flag_bool{false};
     app.add_flag("-b", flag_bool, "bool");
 
-    try{
+    try{                                //wird immer ausgeführt
         app.parse(argc, argv);
-    } catch(const CLI::ParseError& e){
+    } catch(const CLI::ParseError& e){  //wird nur im Fehler bzw. ausnahme Fall ausgeführt
         return app.exit(e);
     }
 
