@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/sebastian/repos/Mein-CLI11-Projekt/build",
-  "command": "/usr/bin/c++   -I/home/sebastian/repos/Mein-CLI11-Projekt/build/_deps/cli11-src/include  -g   -o CMakeFiles/HELLO_World.dir/src/main.cc.o -c /home/sebastian/repos/Mein-CLI11-Projekt/src/main.cc",
-  "file": "/home/sebastian/repos/Mein-CLI11-Projekt/src/main.cc"
-}
-]
