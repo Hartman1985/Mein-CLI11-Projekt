@@ -16,6 +16,19 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(cli11)
 endif()
+
+find_package(json QUIET)
+if(NOT json_FOUND)
+include(FetchContent)
+FetchContent_Declare(
+  json
+  GIT_REPOSITORY https://github.com/nlohmann/json
+  GIT_TAG develop
+)
+FetchContent_MakeAvailable(json)
+endif()
+
+
 add_executable( ${PROJECT_NAME} "${CMAKE_CURRENT_SOURCE_DIR}/src/main.cc" )
 target_link_libraries( ${PROJECT_NAME} CLI11::CLI11 )
-
+target_link_libraries( ${PROJECT_NAME} nlohmann_json::nlohmann_json )

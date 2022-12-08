@@ -1,5 +1,6 @@
 #include <iostream>
 #include <CLI/CLI.hpp>
+#include <nlohmann/json.hpp>
 
 int main(int argc, char** argv)
 {
@@ -23,4 +24,5 @@ int main(int argc, char** argv)
 
     if(flag_bool)
         std::cout <<"Bool erkannt : "<<flag_bool <<std::endl;
+
 }
