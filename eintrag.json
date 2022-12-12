@@ -1,6 +1,15 @@
 {
-    "TEST": "Dies ist ein test" ,
-     "pi": 3.141,
-     "happy": true
+   "Bibliothek": "Meine Filme",
+   "Letzte Aktualisierung":"12.12.2022",
+   "Aktiv": "true",
+   
+      "Drama": [
+        {"Titel": "The Green Mile"}
+                ],
+       "Sci-Fy": [
+          {"Titel":"Star Wars"},
+          {"Titel":"Star Trek"} 
+                ]
+
     
   }
