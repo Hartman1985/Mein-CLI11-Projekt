@@ -23,7 +23,7 @@ include(FetchContent)
 FetchContent_Declare(
   json
   GIT_REPOSITORY https://github.com/nlohmann/json
-  GIT_TAG develop
+  GIT_TAG master
 )
 FetchContent_MakeAvailable(json)
 endif()

@@ -38,7 +38,7 @@ std::string filepath;
     
 std::ifstream file{filepath};
     if(!file.is_open()){
-        std::cout << "Error opening file!\n";
+        std::cout << "Fehler beim Datei öffnen!\n";
         exit(0);
     }
 
