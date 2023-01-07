@@ -6,7 +6,7 @@
 
 using json = nlohmann::json;
 //nlohmann::json database_object;
-//                                          zum starten       ./build/lagerhalterungsystem.cc -r src/lagerhalterung.json      ausgeben lassen! 
+//                                          zum starten       ./build/main.cc -r src/lagerhalterung.json      ausgeben lassen! 
 struct statemachine {
     //statemachine(json& database_object);
     //    : mein_json{database_object};
@@ -18,43 +18,62 @@ struct statemachine {
     }
 
     void aendern() {
-        for (auto& change : mein_json["Regale"])
-        {
+
+        ausgeben();
+
+        //for (auto& change : mein_json["Regale"])
+        //{
             int regalnummer; //Integer für die Options
 
-            std::string neuerinhalt;
+            std::string neuerinhalt,alterinhalt,wahl;
 
-            std::cout << "Welchen Inhalt möchten Sie ändern?" << "\n";
 
-            std::cout << change ["Inhalt"] << "\n";
+             
 
-            std::string vergleichsinhalt;   //Hier wird ein string namens vergleichsinhalt für die for-Schleife erstellt
+            std::cout << "Welches Regal soll geändert werden?" << "\n";
 
-            std::cin >> vergleichsinhalt;   //Hier soll der Inhalt angeben werden, welcher entweder geändert werden soll
-            //Oder durch eine "Fehleingabe" (feature :D ) übersprungen werden, sollte in dem Regal etwas "hinzugefügt werden"
+            std::cin>> regalnummer;
 
-            //Hier wird durch die Option das "Ziel-Regal" angegeben; Mit dem aufruf -n
-            if(change ["Regal"] == regalnummer)
+            
+
+            for (auto& change : mein_json["Regale"])
             {
-                //Hier wird über die Funktion ".push_back" ein neuer Inhalt hinzugefügt, welcher zuvor als Option mit übergeben werden muss -Aufgabe 3.1
-                change ["Inhalt"].push_back(neuerinhalt);   //Mit dem aufruf -a
+             if(change ["Regal"] == regalnummer)
+             {  
+
+            
+            std::cout << change["Inhalt"] << "\n"; 
+            std::cout << "Welcher Inhalt soll geändert werden?" << "\n"; 
+            std::cin>> alterinhalt;
+            for (auto& aktuellinhalt : change["Inhalt"] ){
+                    if (aktuellinhalt==alterinhalt)
+                        {   
+                         std::cout << aktuellinhalt << "\n";         
+                         std::cout << "Neuer Wert" << "\n"; 
+                         std::cin >> neuerinhalt;
+                        aktuellinhalt =neuerinhalt;
+                        break;
+                         }
+                    else if(false)
+                        {
+                        std::cout <<"Leider wurde der Inhalt " << alterinhalt <<" nicht gefunden!!! Soll er hinzugefügt werden?? [J/N]" << "\n";
+                        std::cin >> wahl;
+                            if (wahl == "J")
+                            {
+                                    change ["Inhalt"].push_back(alterinhalt);
+                                    break;
+                            }
+                            else
+                            {
+                                std::cout << "Dann eben nicht!" << "\n";
+                                break;
+                            }
+                        }
+                }             
             }
-
-            for (auto& inhalt : change ["Inhalt"])  //Hier wird in dem Inhalt "reingeschaut"
-            {
-                if(vergleichsinhalt == inhalt)  //sollte der Vergleichsinhalt dem Inhalt entsprechen, so wird das "if" ausgeführt
-                {
-                    std::cin >> inhalt;  //Hier soll ein Inhalt geändert werden -Aufgabe 3.2
-
-                    std::cout << "Der neue geänderte Inhalt heißt: " << inhalt << std::endl;   //Terminal ausgabe um den geänderten Inhalt zu sehen
-
-                }
             }
-
-            std::cout << "Neuer Inhalt: " << change ["Inhalt"] << "\n" << std::endl;
-
-        }
-        ausgeben();
+            
+      
     }
 
     void ausgeben() {

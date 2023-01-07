@@ -6,10 +6,9 @@
         {
             "Anzahl Lagerplätze": 40,
             "Inhalt": [
-                "Glotze",
-                "TV",
-                "SAT-Anlage",
-                "TV3"
+                2,
+                "Radios",
+                "SAT-Anlage"
             ],
             "Leere Plätze": 20,
             "Regal": 1
