@@ -9,7 +9,8 @@
                 "Glotze",
                 "TV",
                 "SAT-Anlage",
-                "TV3"
+                "TV3",
+                "TV4"
             ],
             "Leere Plätze": 20,
             "Regal": 1
@@ -18,7 +19,7 @@
             "Anzahl Lagerplätze": 30,
             "Inhalt": [
                 "Fernseher2",
-                "Radios2",
+                "Radios22",
                 "SAT-Anlage2"
             ],
             "Leere Plätze": 15,

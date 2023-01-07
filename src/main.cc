@@ -52,10 +52,11 @@ struct statemachine {
                          std::cout << "Neuer Wert" << "\n"; 
                          std::cin >> neuerinhalt;
                         aktuellinhalt =neuerinhalt;
-                        break;
+                        return;
                          }
-                    else if(false)
-                        {
+                                                
+                        
+                        }
                         std::cout <<"Leider wurde der Inhalt " << alterinhalt <<" nicht gefunden!!! Soll er hinzugefügt werden?? [J/N]" << "\n";
                         std::cin >> wahl;
                             if (wahl == "J")
@@ -68,8 +69,7 @@ struct statemachine {
                                 std::cout << "Dann eben nicht!" << "\n";
                                 break;
                             }
-                        }
-                }             
+                           
             }
             }
             
