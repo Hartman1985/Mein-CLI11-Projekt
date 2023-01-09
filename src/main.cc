@@ -168,16 +168,16 @@ int main(int argc, char** argv) {
 
         int aktueller_state = 0;
 
-        while((aktueller_state < 1) || (aktueller_state > 3 ))
+        while((aktueller_state < 1) || (aktueller_state > 4 ))
         {
             std::cout <<    "Du kannst wählen zwischen: \n"
                       <<    "(1) für Inhalt Ändern \n"
                       <<    "(2) für Inhalt Ausgeben \n"
-                      <<    "(3) für Inhalt Speichern" << std::endl;
-
+                      <<    "(3) für Inhalt Speichern \n" 
+                      <<    "(4) Ende des Programms" << std::endl;
             std::cin >> aktueller_state;
 
-            if((aktueller_state < 1) || (aktueller_state > 3 ))
+            if((aktueller_state < 1) || (aktueller_state > 4 ))
             {
                 std::cout << "Keine gültige Auswahl!" << std::endl;
             }
@@ -194,6 +194,10 @@ int main(int argc, char** argv) {
         else if(aktueller_state == 3)//Funktion/State Inhalt Speichern
         {
             lagerhaltung_statemachine.speichern();
+        }
+        else if(aktueller_state == 4)//Funktion/State Programmende
+        {
+            break;
         }
     }
 }
